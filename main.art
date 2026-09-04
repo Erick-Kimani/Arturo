@@ -17,6 +17,6 @@ print "---------------------------------------------"
 ; Load the route definitions once at startup
 do "routes/api.art"
 
-serve.port: serverPort [req][
-    handleRequest req
+serve.port: serverPort [request][
+    handleRequest request
 ]

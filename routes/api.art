@@ -1,7 +1,7 @@
 ; routes/api.art
 
-handleRequest: function [req][
-    switch req\path [
+handleRequest: function [request][
+    switch request\path [
         "/api/status" -> return #[ body: "Server is healthy and functional!" status: 200 ]
         "/api/users"  -> return #[ body: "Showing all registered user array maps" status: 200 ]
         else          -> return #[ body: "404 Route Not Found" status: 404 ]
