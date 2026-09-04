@@ -1,0 +1,20 @@
+; main.art
+
+print "============================================="
+print " 🍕 Munchies Arturo Backend Server Framework"
+print "============================================="
+
+; 1. Load configuration cleanly using the native .toml read flag
+config: read.toml ".env"
+serverPort: config\PORT
+
+print ["● Environment Status: Local Development Ready"]
+print ["● Database Hooked to: " config\DB_NAME]
+print ["🚀 Launching active HTTP engine on port:" serverPort]
+print "---------------------------------------------"
+
+; 2. Initialize the native web server engine
+; We use the 'do' execution block to feed incoming request frames dynamically into our api file
+serve.port: serverPort [req][
+    do "routes/api.art"
+]

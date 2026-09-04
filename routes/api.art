@@ -1,0 +1,8 @@
+; routes/api.art
+
+; The implicit 'req' handle passed from our main loop is natively readable here
+switch req\path [
+    "/api/status" -> return #[ body: "Server is healthy and functional!" status: 200 ]
+    "/api/users"  -> return #[ body: "Showing all registered user array maps" status: 200 ]
+    else          -> return #[ body: "404 Route Not Found" status: 404 ]
+]

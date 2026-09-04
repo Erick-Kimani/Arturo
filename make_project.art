@@ -1,0 +1,23 @@
+; make_project.art
+print "🚀 Generating Munchies Arturo Platform Structure..."
+
+; 1. Create files (Arturo automatically builds the parent folders!)
+write "app/controllers/authController.art" "; Auth Controller Logic"
+write "app/controllers/countyController.art" "; County Controller Logic"
+write "app/models/userModel.art" "; User Data Mapping Model"
+write "config/database.art" "; Database Settings"
+write "routes/api.art" "; Core API Router mappings"
+write "main.art" "; Main Server Entry Point File"
+
+; 2. Create the hidden storage directory by dropping a dummy file inside it
+write "storage/logs/.gitkeep" ""
+
+; 3. Create database tracking folders by dropping placeholders
+write "database/migrations/.gitkeep" ""
+write "database/seeders/.gitkeep" ""
+
+; 4. Create .env and .gitignore files
+write ".env" "DB_NAME=\"database/database.sqlite\"\nPORT=8000"
+write ".gitignore" ".env\n*.db\n*.sqlite\nstorage/logs/*"
+
+print "✓ All placeholder folders and files initialized successfully! 🎉"
