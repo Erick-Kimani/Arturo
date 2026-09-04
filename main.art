@@ -14,7 +14,9 @@ print ["🚀 Launching active HTTP engine on port:" serverPort]
 print "---------------------------------------------"
 
 ; 2. Initialize the native web server engine
-; We use the 'do' execution block to feed incoming request frames dynamically into our api file
+; Load the route definitions once at startup
+do "routes/api.art"
+
 serve.port: serverPort [req][
-    do "routes/api.art"
+    handleRequest req
 ]
